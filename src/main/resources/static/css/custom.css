@@ -1,0 +1,39 @@
+
+.btn-custom-cancel {
+  color: white;
+  background-color: #2C3E50;
+  border-color: #2C3E50;
+  font-weight: 700;
+}
+.btn-custom-cancel:hover,
+.btn-custom-cancel:focus,
+.btn-custom-cancel:active,
+.btn-custom-cancel.active,
+.open .dropdown-toggle.btn-custom-cancel {
+  color: white;
+  background-color: #ee1f3e;
+  border-color: #ee1f3e;
+}
+.btn-custom-cancel:active,
+.btn-custom-cancel.active,
+.open .dropdown-toggle.btn-custom-cancel {
+  background-image: none;
+}
+.btn-custom-cancel.disabled,
+.btn-custom-cancel[disabled],
+fieldset[disabled] .btn-custom-cancel,
+.btn-custom-cancel.disabled:hover,
+.btn-custom-cancel[disabled]:hover,
+fieldset[disabled] .btn-custom-cancel:hover,
+.btn-custom-cancel.disabled:focus,
+.btn-custom-cancel[disabled]:focus,
+fieldset[disabled] .btn-custom-cancel:focus,
+.btn-custom-cancel.disabled:active,
+.btn-custom-cancel[disabled]:active,
+fieldset[disabled] .btn-custom-cancel:active,
+.btn-custom-cancel.disabled.active,
+.btn-custom-cancel[disabled].active,
+fieldset[disabled] .btn-custom-cancel.active {
+  background-color: #2C3E50;
+  border-color: #18BC9C;
+}
