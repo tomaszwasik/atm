@@ -3,6 +3,8 @@ package com.example.controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by Tomasz Wąsik, tomaszwasik@live.com
  */
@@ -10,5 +12,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface DefaultController {
 
     @GetMapping
-    String showPage(Model model);
+    String showPage(HttpServletRequest request, Model model);
 }

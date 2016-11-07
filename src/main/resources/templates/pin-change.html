@@ -34,6 +34,13 @@
 
 <body id="page-top" class="index">
 
+<div>
+    <br/>
+    <div th:if="${errorMessage != null}" th:text="${errorMessage}" class="col-lg-4 col-lg-offset-4 text-center alert alert-danger">
+        <strong>Błąd wprowadzonych danych!</strong> Proszę ponownie wprowadzić dane.
+    </div>
+</div>
+
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
         <div class="container">
@@ -45,11 +52,11 @@
             </div>
             <br/><br/><br/><br/><br/>
 			<div class="col-lg-4 col-lg-offset-4">
-				<form name="sentMessage" id="contactForm" novalidate="novalidate">
+				<form th:action="@{/pin/pin-change}" th:object="${pinChangeForm}" method="post" novalidate="novalidate">
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
 							<label>nowy numer PIN</label>
-							<input type="password" class="form-control" placeholder="nowy numer PIN" id="pinNumber" autofocus="autofocus" required="required" data-validation-required-message="Proszę podać nowy numer PIN."/>
+							<input type="password" th:field="*{newPin}" class="form-control" placeholder="nowy numer PIN" id="pinNumber" autofocus="autofocus" required="required" data-validation-required-message="Proszę podać nowy numer PIN."/>
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>

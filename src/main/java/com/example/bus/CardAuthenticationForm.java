@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.bus;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import lombok.Data;
  * Created by Tomasz Wąsik, tomaszwasik@live.com
  */
 @Data
-public class CardModel {
+public class CardAuthenticationForm {
 
     private String number;
 
