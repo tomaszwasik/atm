@@ -1,9 +1,8 @@
 package com.example.controller;
 
-import com.example.bus.AuthenticationForm;
 import com.example.bus.CashPaymentForm;
 import com.example.util.RedirectionHelper;
-import com.example.util.StaticField;
+import com.example.util.AtmApplicationStatics;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,10 +27,10 @@ public class CashPaymentController {
             return RedirectionHelper.showControllerPage(HomeController.class);
         }
 
-        model.addAttribute(StaticField.CASH_PAYMENT_FORM_KEY, new CashPaymentForm());
+        model.addAttribute(AtmApplicationStatics.CASH_PAYMENT_FORM_KEY, new CashPaymentForm());
 
         if(showErrorMessage){
-            model.addAttribute(StaticField.ERROR_MESSAGE_KEY, "Błąd wprowadzonych danych! Proszę ponownie wprowadzić dane.");
+            model.addAttribute(AtmApplicationStatics.ERROR_MESSAGE_KEY, "Błąd wprowadzonych danych! Proszę ponownie wprowadzić dane.");
         }
 
         return "cash-payment";

@@ -42,7 +42,7 @@
                     <h2>Środki dostępne na rachunku</h2>
                     <hr class="star-primary"/>
 					<br/>
-						<h2>3685,25 zł</h2>
+						<h2 th:if="${amount != null}" th:text="${amount}">3685,25 zł</h2>
 					<br/>
 					<hr class="star-primary"/>
                 </div>

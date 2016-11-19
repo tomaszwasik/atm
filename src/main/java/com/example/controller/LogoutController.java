@@ -4,32 +4,32 @@ package com.example.controller;
  * Created by Tomasz Wąsik, tomaszwasik@live.com
  */
 
+import com.example.bus.SessionConfigurationModel;
 import com.example.util.RedirectionHelper;
-import com.example.util.StaticField;
+import com.example.util.AtmApplicationStatics;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping(value = "/logout")
-public class LogoutController implements DefaultController{
+public class LogoutController {
 
-    private static final String REDIRECT_PREFIX = "redirect:";
-
-    @Override
+    @GetMapping
     public String showPage(HttpServletRequest request, Model model) {
 
         if(request.getSession(false) == null){
             return RedirectionHelper.showControllerPage(HomeController.class);
         }
+        SessionConfigurationModel attribute = (SessionConfigurationModel) request.getSession().getAttribute(AtmApplicationStatics.SESSION_CONFIG_MODEL_KEY);
 
-        model.addAttribute(StaticField.WITHDRAW_DESCRIPTION_KEY, "wypłacono 300 zł");
+        if(StringUtils.isNotBlank(attribute.getMessageForUser())){
+            model.addAttribute(AtmApplicationStatics.DEFAULT_MESSAGE_KEY, attribute.getMessageForUser());
+        }
 
         return "logout";
     }

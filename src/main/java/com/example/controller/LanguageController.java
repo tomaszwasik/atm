@@ -2,7 +2,7 @@ package com.example.controller;
 
 import com.example.bus.SessionConfigurationModel;
 import com.example.util.RedirectionHelper;
-import com.example.util.StaticField;
+import com.example.util.AtmApplicationStatics;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +31,7 @@ public class LanguageController implements DefaultController{
         request.getSession().invalidate();
         HttpSession session = request.getSession(true);
         SessionConfigurationModel sessionConfigurationModel = new SessionConfigurationModel();
-        session.setAttribute(StaticField.SESSION_CONFIG_MODEL_KEY, sessionConfigurationModel);
+        session.setAttribute(AtmApplicationStatics.SESSION_CONFIG_MODEL_KEY, sessionConfigurationModel);
 
         return "language";
     }
@@ -47,10 +47,9 @@ public class LanguageController implements DefaultController{
 
         logger.info("Language: " + language);
 
-        SessionConfigurationModel sessionConfigurationModel =(SessionConfigurationModel) session.getAttribute(StaticField.SESSION_CONFIG_MODEL_KEY);
+        SessionConfigurationModel sessionConfigurationModel =(SessionConfigurationModel) session.getAttribute(AtmApplicationStatics.SESSION_CONFIG_MODEL_KEY);
         sessionConfigurationModel.setLanguage(language);
-        session.setAttribute(StaticField.SESSION_CONFIG_MODEL_KEY, sessionConfigurationModel);
-
+        session.setAttribute(AtmApplicationStatics.SESSION_CONFIG_MODEL_KEY, sessionConfigurationModel);
 
         return RedirectionHelper.showControllerPage(PinController.class);
     }

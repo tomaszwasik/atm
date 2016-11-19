@@ -9,4 +9,9 @@ import lombok.Data;
 public class SessionConfigurationModel {
 
     private String language;
+    private long userAccountId;
+    private long userCardId;
+
+    private String messageForUser;
+    private String amountInfoForUser;
 }
