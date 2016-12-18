@@ -78,8 +78,19 @@ public class PinController {
             return showPage(request, model, DEFAULT_ERROR_MESSAGE);
         }
 
-        // stores info in session object
         SessionConfigurationModel sessionConfigModel =(SessionConfigurationModel) request.getSession().getAttribute(AtmApplicationStatics.SESSION_CONFIG_MODEL_KEY);
+
+        // check if card was stolen
+        if(card.isStolen()){
+
+            sessionConfigModel.setMessageForUser(AtmApplicationStatics.CARD_WAS_STOLEN_INFO);
+            request.getSession().setAttribute(AtmApplicationStatics.SESSION_CONFIG_MODEL_KEY, sessionConfigModel);
+            return RedirectionHelper.showControllerPage(LogoutController.class);
+        }
+
+        sessionConfigModel.setAtmAccountId(atm.getId());
+        logger.info("ATM account id: " + atm.getId());
+
         sessionConfigModel.setUserAccountId(card.getAccount().getId());
         logger.info("User account id: " + card.getAccount().getId());
 
@@ -124,6 +135,8 @@ public class PinController {
         cardService.updateCard(userCard);
 
         attribute.setMessageForUser(AtmApplicationStatics.PIN_CHANGE_INFO);
+
+        request.getSession().setAttribute(AtmApplicationStatics.SESSION_CONFIG_MODEL_KEY, attribute);
 
         return RedirectionHelper.showControllerPage(LogoutController.class);
     }

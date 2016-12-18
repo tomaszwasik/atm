@@ -24,4 +24,8 @@ public class AtmApplicationStatics {
     public static final String CASH_PAYMENT_FORM_KEY = "cashPaymentForm";
 
     public static final String PIN_CHANGE_INFO = "Zmieniono numer PIN.";
+
+    public static final String CARD_WAS_STOLEN_INFO = "Karta zastrzeżona. Proszę skontaktować się z bankiem.";
+
+    public static final String DEFAULT_DATA_ERROR_MSG = "Błąd wprowadzonych danych! Proszę ponownie wprowadzić dane.";
 }

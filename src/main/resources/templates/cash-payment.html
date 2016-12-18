@@ -53,7 +53,7 @@
                 <div class="col-lg-12 text-center">
                     <h2>Proszę podać kwotę</h2>
                     <hr class="star-primary"/>
-						<h3>Bankomant wypłaca wielokrotność 50 zł</h3>
+						<h3 th:if="${denominationInfo != null}" th:text="${denominationInfo}">Bankomant wypłaca wielokrotność 50 zł</h3>
 					<hr class="star-primary"/>
                 </div>
             </div>

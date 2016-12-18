@@ -12,6 +12,9 @@ public class SessionConfigurationModel {
     private long userAccountId;
     private long userCardId;
 
+    private long atmAccountId;
+
     private String messageForUser;
     private String amountInfoForUser;
+
 }
